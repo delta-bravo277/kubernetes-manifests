@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-first-pod
+spec: 
+  containers:
+    - name: my-pod-container
+      image: nginx:latest
+      env:                          #single ENV varible
+        - name: IP
+          valueFrom:
+            configMapKeyRef:
+              name: my-first-cm
+              key: ENV_IP
+        - name: PASS  
+          valueFrom:
+            configMapKeyRef:
+              name: my-first-cm
+              key: ENV_PASS
+      #envFrom:                   # all CM
+      # - configMapRef:
+      #     name: my-first-cm

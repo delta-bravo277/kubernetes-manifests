@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: volume-pod
+  labels:
+    topic: volume
+
+spec:
+  containers:
+    - name: volume-cont
+      image: nginx
+      volumeMounts:
+        - mountPath: "/opt"
+          name: data-volume
+  
+  volumes:
+    - name: data-volume
+      hostPath:
+        path: /home/ubuntu/volume

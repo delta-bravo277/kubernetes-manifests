@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cm-volume-pod
+spec:
+  volumes:
+  - name: conf-volume
+    configMap:
+      name: mysql-cm-volume
+  containers:
+  - name: cm-volume-pod
+    image: nginx
+    volumeMounts:
+    - name: conf-volume
+      mountPath: "/opt"

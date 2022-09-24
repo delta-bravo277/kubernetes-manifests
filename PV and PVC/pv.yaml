@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mypv
+spec:
+
+  storageClassName: local-class
+
+  capacity:
+    storage: 800Mi
+  
+  accessModes:
+      - ReadWriteOnce
+
+  persistentVolumeReclaimPolicy: Delete
+  
+  hostPath:
+    path: /home/ubuntu/final/mypv-delete
